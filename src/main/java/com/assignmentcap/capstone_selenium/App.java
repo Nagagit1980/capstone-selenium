@@ -1,4 +1,5 @@
 package com.assignmentcap.capstone_selenium;
+import static org.junit.Assert.assertEquals;
 
 import java.util.concurrent.TimeUnit;
 
@@ -27,27 +28,31 @@ public class App
         WebDriverManager.chromedriver().setup();
         
         ChromeOptions chromeoptions = new ChromeOptions();
-        chromeoptions.addArguments("--headless");
+        //chromeoptions.addArguments("--headless");
         WebDriver driver = new ChromeDriver(chromeoptions);
         
         System.out.println("Executing script");
         //1. Open Browser
-        driver.get("http://3.12.74.99:8081/contact.html");
+        driver.get("http://3.17.164.222:8081/contact.html");
         
         //enable wait for 3 seconds
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         
         //Give user name
-        driver.findElement(By.id("inputName")).sendKeys("Prema");
+        driver.findElement(By.id("inputName")).sendKeys("naga");
         Thread.sleep(1000);
         driver.findElement(By.id("inputNumber")).sendKeys("99999999");
         Thread.sleep(1000);
-        driver.findElement(By.id("inputMail")).sendKeys("prema@abcdef.com");
+        driver.findElement(By.id("inputMail")).sendKeys("naga@outlook.com");
         Thread.sleep(1000);
         driver.findElement(By.id("inputMessage")).sendKeys("HelloInsureMe");
         Thread.sleep(1000);
         driver.findElement(By.id("my-button")).click();
         Thread.sleep(1000);
+        driver.findElement(By.id("response")).getText();
+        System.out.println(driver.findElement(By.id("response")).getText());
+        String responsetext=driver.findElement(By.id("response")).getText();
+        assertEquals("Message Sent", responsetext);
         driver.quit();
         System.out.println("Insure Me Script execution complete");       
     }
