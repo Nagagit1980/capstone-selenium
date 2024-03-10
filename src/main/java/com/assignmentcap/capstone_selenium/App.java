@@ -21,7 +21,7 @@ public class App
     {
         System.out.println( "Hello World!" );
         //Web driver
-        //System.setProperty("webdriver.chrome.driver", "c:\\Users\\Prema\\chromedriver-win64\\chromedriver.exe");
+        //System.setProperty("webdriver.chrome.driver", "c:\\Users\\naga\\chromedriver-win64\\chromedriver.exe");
         
         //Web driver from pom file
         
